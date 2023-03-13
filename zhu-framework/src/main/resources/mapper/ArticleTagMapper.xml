@@ -27,6 +27,7 @@
         <foreach item="tagId" collection="tagIds" open="(" separator="," close=")">
             #{tagId}
         </foreach>
+
     </update>
 
 
