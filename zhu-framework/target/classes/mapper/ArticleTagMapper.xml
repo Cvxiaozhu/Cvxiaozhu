@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.zhu.blog.mapper.ArticleTagMapper">
+
+    <delete id="deleteArticleAndTag11">
+        delete
+        from article_tag
+        where
+        (
+        article_id = #{articleTag.articleId} and tag_id in
+        <foreach collection="tags" item="tagId" separator="," open="(" close=")">
+            #{tagId}
+        </foreach>
+        )
+    </delete>
+
+    <delete id="deleteArticleAndTag">
+        delete
+        from sg_article_tag
+        where
+        (
+        article_id = #{articleId} and tag_id in
+        <foreach collection="tags" item="tagId" separator="," open="(" close=")">
+            #{tagId}
+        </foreach>
+        )
+    </delete>
+
+
+</mapper>
