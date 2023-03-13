@@ -7,7 +7,7 @@
           :src="
             this.$store.state.themeObj.center_smailimg
               ? this.$store.state.themeObj.center_smailimg
-              : 'static/img/img01.jpg'
+              : 'static/img/zhu.jpg'
           "
           alt=""
         />
@@ -16,7 +16,7 @@
         </h1>
       </div>
       <div class="r1-body">
-        <p>三更</p>
+        <p>cvxiaozhu</p>
         <div class="catch-me">
           <div class="">
             <el-tooltip class="item" content="Github" placement="top">
@@ -121,12 +121,12 @@ export default {
       artCommentList: "", //最新评论
       catchMeObj: {
         //个人信息
-        git: "https://gitee.com",
-        qq: "/static/img/qq.png",
-        sina: "https://weibo.com",
-        wechat: "/static/img/qq.jpg",
-        csdn: "http://www.csdn.cn",
-        job: "https://www.baidu.com",
+        git: "https://github.com/Cvxiaozhu/Cvxiaozhu",
+        qq: "/static/zhu/zhu.jpg",
+        sina: "https://weibo.com/login.php/",
+        wechat: "/static/zhu/zhu.jpg",
+        csdn: "https://www.csdn.net/",
+        job: "https://leetcode.cn/",
       },
     };
   },

@@ -60,6 +60,12 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
         page(pages, queryWrapper);
 
         List<CommentVo> commentVos = toCommentVoList(pages.getRecords());
+
+        // 评论可能为空
+        if (commentVos.isEmpty()) {
+            return ResponseResult.okResult();
+        }
+
         for (CommentVo commentVo : commentVos) {
             List<CommentVo> children = getChildren(commentVo.getId());
             commentVo.setChildren(children);
@@ -69,8 +75,6 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
 
         return ResponseResult.okResult(pageVo);
     }
-
-
 
     /**
      * 根据根评论id查询子评论的集合
@@ -95,6 +99,7 @@ public class CommentServiceImpl extends ServiceImpl<CommentMapper, Comment> impl
      * @return
      */
     private List<CommentVo> toCommentVoList(List<Comment> list) {
+
         List<CommentVo> commentVos = BeanCopyUtils.copyBeanList(list, CommentVo.class);
         //遍历vo集合
         for (CommentVo commentVo : commentVos) {
